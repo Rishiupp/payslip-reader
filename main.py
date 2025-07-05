@@ -9,14 +9,14 @@ API_KEY = "YOUR_API_KEY_HERE"  # if required
 
 # --- Field Extraction Patterns ---
 FIELD_PATTERNS = {
-    'employee_name': r"(?:Employee(?:'s)?\s+Name|Name\s+of\s+Employee|Emp\s+Name)[:\s]+([A-Za-z .'-]+)",
-    'doj': r"(?:Date\s+of\s+Joining|DOJ|Joining\s+Date|Date\s+Joined)[:\s]+(\d{2}[/-]\d{2}[/-]\d{4})",
-    'designation': r"(?:Designation|Job\s+Title|Position|Role)[:\s]+([A-Za-z0-9 /&()\-\.]+)",
-    'location': r"(?:Location|Work\s+Location|Office\s+Location|Place\s+of\s+Posting)[:\s]+([A-Za-z0-9 ,.-]+)",
-    'pf_number': r"(?:PF\s*(?:No\.|Number|Account\s*No\.|Acct\s*No\.|#)|Provident\s+Fund\s+No\.)[:\s]+([A-Z0-9/\-]+)",
-    'uan': r"(?:UAN|Universal\s+Account\s+Number)[:\s]+(\d{12})",
-    'gross_earning': r"(?:Gross\s+Earnings|Total\s+Earnings|Earnings\s*\(Gross\)|Gross\s+Salary)[:\s]+([0-9,]+\.\d{2})",
-    'gross_deduction': r"(?:Gross\s+Deductions|Total\s+Deductions|Deductions\s*\(Gross\)|Gross\s+Deducted)[:\s]+([0-9,]+\.\d{2})",
+    "employee_name":      r"(?i)\b(?:Employee\s*Name|Name\s*of\s*Employee|Emp\.?\s*Name)\s*[:\-]?\s*(.+)",
+    "date_of_joining":    r"(?i)\b(?:Date\s+of\s+Joining|Date\s+Joined|DOJ|Joining\s+Date|Start\s+Date)\s*[:\-]?\s*(\d{1,2}[-/]\d{1,2}[-/]\d{2,4}|\d{1,2}\s+[A-Za-z]+\s+\d{4}|[A-Za-z]+\s+\d{1,2},?\s+\d{4})",
+    "designation":       r"(?i)\b(?:Designation|Job\s+Title|Position|Post|Employee\s+Grade)\s*[:\-]?\s*(.+)",
+    "location":          r"(?i)\b(?:Office\s+Location|Work\s+Location|Place\s+of\s+Posting|Location|Work\s+City)\s*[:\-]?\s*(.+)",
+    "pf_number":         r"(?i)\b(?:PF\s*(?:No|Number|#)?|EPF\s*(?:A/c|Account|No)?)\s*[:\-]?\s*([\w\/\-\s]+)",
+    "uan_number":        r"(?i)\b(?:UAN|Universal\s+Account\s+Number)\s*(?:No|Number)?\s*[:\-]?\s*(\d{12})",
+    "gross_earnings":    r"(?i)\b(?:Gross\s+Earnings|Gross\s+Pay|Gross\s+Salary|Gross\s+Income|Total\s+Earnings)\s*[:\-]?\s*([\d,]+(?:\.\d+)?)",
+    "gross_deductions":  r"(?i)\b(?:Gross\s+Deduction|Gross\s+Deductions|Total\s+Deduction|Total\s+Deductions|Deductions)\s*[:\-]?\s*([\d,]+(?:\.\d+)?)"
 }
 
 
